@@ -1,0 +1,14 @@
+from django.urls import path
+
+
+from . import views
+
+app_name = 'community'
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('<int:category_id>', views.category, name='category'),
+    path('write', views.write, name='write'),
+    path('detail/<int:article_id>/', views.detail, name='detail'),
+    # path('<str:>')
+]
