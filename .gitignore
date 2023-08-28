@@ -173,5 +173,7 @@ cython_debug/
 # Built Visual Studio Code Extensions
 *.vsix
 
+
 secrets.json
 api_key.py
+
