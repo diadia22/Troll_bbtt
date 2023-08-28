@@ -27,3 +27,6 @@ def search(request,nickname):
     summoner_info = Summoner_Info.objects.get(summonerName=nickname)
 
     return render(request, 'search/search.html',{'summoner_info':summoner_info})
+
+def ai(request, summonerName):
+    pass

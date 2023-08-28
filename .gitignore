@@ -174,3 +174,4 @@ cython_debug/
 *.vsix
 
 secrets.json
+api_key.py
