@@ -68,7 +68,7 @@ def point_ML(df): # 위에서 나온 dataframe으로 머신러닝 돌리는데 �
     print(recommendations.get(df.iloc[-1]['puuid']))
 # point_ML(df)
 
-nickname = '아이디가문제'
-point_ML(input_summonerId(input_summonerName('아이디가 문제').get('id')))
+nickname = 'Lillard0'
+point_ML(input_summonerId(input_summonerName(nickname).get('id')))
 
 
