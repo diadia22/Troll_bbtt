@@ -31,3 +31,6 @@ def search(request,nickname):
 
 def ai(request, summonerName):
     pass
+    # search/models.py -> database 구축(columns, 자료형(type)) 지정하는 Class 만들어주기
+    # search/views.py -> database csv 넣어주는 식 하나 만들어주기(AWS hosting 되면 딱 한 번만 실행할 것)
+    # api요청에 요청을 통해 받은 최종적인 dataframe을 database추가해주는데 중복(database에 있는 id를 검색한거라면 = if puuid 같을 때)되면 최신걸로 업데이트
