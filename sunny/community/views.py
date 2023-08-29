@@ -33,7 +33,7 @@ def write(request):
         print(type(category_id))
 
 
-        article = Articles.objects.create(title=title, conㄴtent=content, user_id=user, category_id_id=category_id)
+        article = Articles.objects.create(title=title, content=content, user_id=user, category_id_id=category_id)
         article.save()
         return redirect(reverse('community:index', ))
     

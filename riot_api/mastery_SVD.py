@@ -69,6 +69,10 @@ def point_ML(df): # 위에서 나온 dataframe으로 머신러닝 돌리는데 �
 # point_ML(df)
 
 nickname = 'Lillard0'
-point_ML(input_summonerId(input_summonerName(nickname).get('id')))
+# point_ML(input_summonerId(input_summonerName(nickname).get('id')))
 
 
+def masterty_SVD(nickname):
+    id = input_summonerName(nickname).get('id')
+    df = input_summonerId(id)
+    point_ML(df)
