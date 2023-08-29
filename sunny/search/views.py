@@ -2,6 +2,7 @@ from django.shortcuts import render
 from main.models import Match_Info,Summoner_Info,League_Entries,Champion_Image,Item_Image,Main_Perk_Image,Sub_Perk_Image
 from django.urls import reverse
 
+
 # Create your views here.
 def index(request):
     match_info=Match_Info.objects.all()
