@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.shortcuts import get_object_or_404
 from .models import Articles, Category, Recommend, Comment
 from django.urls import reverse
 # Create your views here.
@@ -48,7 +48,25 @@ def detail(request, article_id):
     return render(request, 'community/detail.html', {'article':article, 'comment':comment})
 
 def update(request, article_id):
+    print('1')
+    print('1')
+    print('1')
+    print('1')
+    print('1')
+    print('1')
     category_list = Category.objects.all()
+    
+    if article_id:
+        article = get_object_or_404(Articles, id=article_id)
+        print("2")
+        print("2")
+        print("2")
+        print("2")
+        print("2")
+        print("2")
+        print("2")
+    else:
+        article_id == None
     if request.method == 'POST':
         data = request.POST
         title, content, user, category_id = data['title'], data['content'], data['user'], data['category_id']
@@ -60,7 +78,7 @@ def update(request, article_id):
 
         article = Articles.objects.create(title=title, content=content, user_id=user, category_id_id=category_id)
         article.save()
-        return redirect(reverse('community:index', ))
+        return redirect(reverse(f'community:dstail/{article_id}'))
     
 
-    return render(request, 'community/write.html', {'category_list':category_list})
+    return render(request, 'community/update.html', {'category_list':category_list, 'article':article})
