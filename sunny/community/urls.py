@@ -10,5 +10,6 @@ urlpatterns = [
     path('<int:category_id>', views.category, name='category'),
     path('write', views.write, name='write'),
     path('detail/<int:article_id>/', views.detail, name='detail'),
+    path('update/<int:article_id>/', views.update, name='update')
     # path('<str:>')
 ]

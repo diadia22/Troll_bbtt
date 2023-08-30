@@ -33,7 +33,7 @@ def write(request):
         print(type(category_id))
 
 
-        article = Articles.objects.create(title=title, conㄴtent=content, user_id=user, category_id_id=category_id)
+        article = Articles.objects.create(title=title, content=content, user_id=user, category_id_id=category_id)
         article.save()
         return redirect(reverse('community:index', ))
     
@@ -46,3 +46,21 @@ def detail(request, article_id):
     
 
     return render(request, 'community/detail.html', {'article':article, 'comment':comment})
+
+def update(request, article_id):
+    category_list = Category.objects.all()
+    if request.method == 'POST':
+        data = request.POST
+        title, content, user, category_id = data['title'], data['content'], data['user'], data['category_id']
+        
+        
+        print('-*'*88)
+        print(type(category_id))
+
+
+        article = Articles.objects.create(title=title, content=content, user_id=user, category_id_id=category_id)
+        article.save()
+        return redirect(reverse('community:index', ))
+    
+
+    return render(request, 'community/write.html', {'category_list':category_list})
