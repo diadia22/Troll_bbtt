@@ -4,7 +4,7 @@
 <div class="container">
  <div class="mt-5 contents-wrap">
     {% if user.is_authenticated %}
-    {% if user.id != article.user %}
+    {% if user.username != article.user.username %}
   <p>잘못된 접근방법 입니다.</p>
     {% else %}
   <h3 class="nav-loc">
