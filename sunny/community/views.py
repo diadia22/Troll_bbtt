@@ -29,8 +29,7 @@ def write(request):
         title, content, user, category_id = data['title'], data['content'], data['user'], data['category_id']
         
         
-        print('-*'*88)
-        print(type(category_id))
+
 
 
         article = Articles.objects.create(title=title, content=content, user_id=user, category_id_id=category_id)
@@ -58,27 +57,27 @@ def update(request, article_id):
     
     if article_id:
         article = get_object_or_404(Articles, id=article_id)
-        print("2")
-        print("2")
-        print("2")
-        print("2")
-        print("2")
-        print("2")
-        print("2")
     else:
-        article_id == None
+        article_id = None
+
     if request.method == 'POST':
         data = request.POST
         title, content, user, category_id = data['title'], data['content'], data['user'], data['category_id']
         
+        category = Category.objects.get(id=category_id)
         
-        print('-*'*88)
-        print(type(category_id))
-
-
-        article = Articles.objects.create(title=title, content=content, user_id=user, category_id_id=category_id)
+        article.title = title
+        article.content = content
+        article.category_id = category
+        
+        
         article.save()
-        return redirect(reverse(f'community:dstail/{article_id}'))
+        return redirect(reverse('community:detail', args=[article_id]))
     
 
     return render(request, 'community/update.html', {'category_list':category_list, 'article':article})
+
+def delete(request, article_id):
+    article = get_object_or_404(Articles, id=article_id)
+    article.delete()
+    return redirect('community:index')

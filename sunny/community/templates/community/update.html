@@ -10,7 +10,7 @@
 
   <div class="container">
    <div class="contents">
-    <form action="{% url "community:write" %}" method="POST">
+    <form action="{% url 'community:update' article.id %}" method="POST">
         {% csrf_token %}
         <div class="board-header p-3 mb-3">
             <label for="title" class="form-label">글 제목</label>
