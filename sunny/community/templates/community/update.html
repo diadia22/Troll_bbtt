@@ -4,6 +4,9 @@
 <div class="container">
  <div class="mt-5 contents-wrap">
     {% if user.is_authenticated %}
+    {% if user.id != article.user %}
+  <p>잘못된 접근방법 입니다.</p>
+    {% else %}
   <h3 class="nav-loc">
    글 작성
   </h3>
@@ -48,8 +51,9 @@
     </form>
    </div>
   </div>
+  {% endif %}
   {% else %}
-  <p>글을 쓰려면 <a href="/user/login">로그인</a>을 해주세요.</p>
+  <p>글을 수정하려면 <a href="/user/login">로그인</a>을 해주세요.</p>
   {% endif %}
   
  </div>
