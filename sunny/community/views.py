@@ -28,10 +28,6 @@ def write(request):
         data = request.POST
         title, content, user, category_id = data['title'], data['content'], data['user'], data['category_id']
         
-        
-
-
-
         article = Articles.objects.create(title=title, content=content, user_id=user, category_id_id=category_id)
         article.save()
         return redirect(reverse('community:index', ))
@@ -47,12 +43,6 @@ def detail(request, article_id):
     return render(request, 'community/detail.html', {'article':article, 'comment':comment})
 
 def update(request, article_id):
-    print('1')
-    print('1')
-    print('1')
-    print('1')
-    print('1')
-    print('1')
     category_list = Category.objects.all()
     
     if article_id:
