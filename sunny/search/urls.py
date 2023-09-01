@@ -7,5 +7,5 @@ app_name ='search'
 
 urlpatterns = [
     path('', views.index, name='search'),
-    path('<str:nickname>/', views.search, name='search')
+    path('<str:nickname>/', views.search, name='search_id')
 ]
